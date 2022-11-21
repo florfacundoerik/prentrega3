@@ -1,12 +1,14 @@
-
-let datosTratamiento =[]
-const tbody = document.querySelector('.tbody')
+const botonAgregar = document.getElementById('agregar')
 let clienteParse = JSON.parse(localStorage.getItem('Personas'));
 let message = document.getElementById('welcome');
 let divNft = document.getElementById("divContent"); //Se agrega el DIV agregado en el HTML
 let divNft2 = document.getElementById("divContent2"); //Se agrega el DIV agregado en el HTML
 message.innerHTML += '¡Bienvenido ' + clienteParse[0].nombre + ' comenzemos con el prespuesto!';
 
+localStorage.getItem('divContect')
+console.log(divContent)
+localStorage.getItem('divContect2')
+console.log(divContent2)
 //Creamos array de vehiculos//
 const vehiculosArray = []
 class vehiculo {
@@ -27,7 +29,6 @@ vehiculosArray.push(suv);
 const pickup = new vehiculo('Pickup', 1.30, 5)
 vehiculosArray.push(pickup);
 
-
 vehiculosArray.forEach((auto) => {        //recorre el array "TRAT ARRAY"
     const divCard2 = document.createElement("div");
     divCard2.classList.add("card");
@@ -43,11 +44,13 @@ vehiculosArray.forEach((auto) => {        //recorre el array "TRAT ARRAY"
     <div class="card-body">
     <h5 class="card-title">${name1}</h5>
     <p class="card-text"> +% ${aumento} DE INTERES
-    <button id="boton${id}" class="btn btn-primary agregar-carrito"> SELECT VEHICULO</button>
+    <button id="agregar${id}" class="btn btn-primary" data-bs-toggle="button"> SELECT VEHICULO</button>
     </div>
     `;
 divCard2.innerHTML = divContent2;
 divNft2.append(divCard2);    
+
+console.log(divContent2)
 })
 //Creamos array de tratamientos disponibles//
 
@@ -90,12 +93,25 @@ tratArray.forEach((trat) => {        //recorre el array "TRAT ARRAY"
     <h5 class="card-title">${nombret}</h5>
     <p class="card-test">${descripcion}</p>
     <p class="card-text">$ ${price}
-    <button id="boton${id}" class="btn btn-primary select-tratamiento"> SELECT TRATAMIENTO</button>
+    <button id="agregar${id}" class="btn btn-primary" data-bs-toggle="button"> SELECT TRATAMIENTO</button>
     </div>
     `;
 divCard.innerHTML = divContent;
 divNft.append(divCard);    
     
 })
+
+let datosTratamiento =[]
+ 
+botonAgregar.onclick = () => {
+    const indexProd = selectElem.selectedIndex
+    const prodSelec  = tratArray [indexProd]
+    console.log(prodSelec)
+}
+
+
+let datosVehiculo = []
+
+
 
 
